@@ -1,0 +1,21 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+
+# Local storage (Chroma, SQLite) - rebuilt from data/
+storage/*
+!storage/.gitkeep
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Planning documents (kept in Google Drive)
+/*.pdf
