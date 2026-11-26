@@ -21,6 +21,8 @@ class Settings(BaseSettings):
 
     jwt_secret: str
     jwt_expire_minutes: int = 480
+    # Shared password for the Phase 1 demo users (app/core/auth.py). Not for real accounts.
+    demo_password: str = "teammind-demo"
 
     chroma_dir: str = "storage/chroma"
     sqlite_path: str = "storage/teammind.db"
