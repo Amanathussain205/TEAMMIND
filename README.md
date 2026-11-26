@@ -53,7 +53,7 @@ To switch users in `/docs`, click **Authorize → Logout** first. Then `POST /ch
 | `eval` | Judges and runner (Phase 5); `datasets/dev` (visible dev set), `datasets/test` (hidden test set), `datasets/tricks` (injection documents, never ingested); `results` |
 | `data` | `company_description.md` (source of truth), `corpus/` (38 DOCX: `shared`, `dev`, `sales`, `social` + `manifest.csv`), `seed/` CSVs |
 | `docs` | Non-code project documents: dataset fact register, readable question lists (never ingested) |
-| `ui` | Streamlit app |
+| `frontend` | React + TypeScript website (Vite, Tailwind CSS, shadcn/ui), from January |
 | `storage` | Chroma index (git-ignored, rebuilt by the indexer) |
 
 Design choices are logged in [DECISIONS.md](DECISIONS.md).
