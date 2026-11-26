@@ -15,21 +15,33 @@ pip install -r requirements-dev.txt
 copy .env.example .env   # then fill in the keys
 ```
 
-## Run (Phase 1)
+## Run (Phase 1, v0.1)
 
-With the virtual environment activated:
+With the virtual environment activated, from the project root:
 
-```bash
-uvicorn app.main:app --reload
-streamlit run ui/streamlit_app.py
-pytest
-```
+| Task | Command |
+|---|---|
+| Build the index (first time, or after corpus changes) | `python -m app.ingestion.indexer --reset` |
+| Run all tests (isolation + API) | `pytest` |
+| Start the API | `uvicorn app.main:app --reload` |
+| Ask 5 sample questions per team | `python -m app.rag.chain` |
+| Run the starter evaluation | `python -m eval.run_eval` |
+
+Open http://127.0.0.1:8000/docs, click **Authorize** and log in as a demo user. All demo users share `DEMO_PASSWORD` from `.env` (default `teammind-demo`):
+
+| Team | Users |
+|---|---|
+| Development | `bilal`, `hira` |
+| Sales | `ayesha`, `kamran` |
+| Social Media | `zara`, `noor` |
+
+To switch users in `/docs`, click **Authorize → Logout** first. Then `POST /chat` with `{"question": "..."}`; the team always comes from the token.
 
 ## Layout
 
 | Folder | Contents |
 |---|---|
-| `app/core` | Config, JWT auth, database setup |
+| `app/core` | Config (loads `.env`), demo users and JWT auth; database setup (December) |
 | `app/api` | FastAPI routers |
 | `app/ingestion` | Loaders, splitter, indexer |
 | `app/retrieval` | Team-scoped retrievers (`get_retriever(team_id)`) |
@@ -42,6 +54,6 @@ pytest
 | `data` | `company_description.md` (source of truth), `corpus/` (38 DOCX: `shared`, `dev`, `sales`, `social` + `manifest.csv`), `seed/` CSVs |
 | `docs` | Non-code project documents: dataset fact register, readable question lists (never ingested) |
 | `ui` | Streamlit app |
-| `storage` | Chroma and SQLite files (git-ignored) |
+| `storage` | Chroma index (git-ignored, rebuilt by the indexer) |
 
 Design choices are logged in [DECISIONS.md](DECISIONS.md).
