@@ -31,11 +31,16 @@ def get_embeddings() -> OpenAIEmbeddings:
 
 
 def get_vector_store(collection_name: str, embeddings: OpenAIEmbeddings | None = None) -> Chroma:
-    """Open (or create) one persistent Chroma collection."""
+    """Open (or create) one persistent Chroma collection.
+
+    Uses cosine distance, so relevance scores run from 0 (unrelated) to 1 (identical).
+    Chroma's default (L2) gives negative scores, which breaks a score threshold.
+    """
     return Chroma(
         collection_name=collection_name,
         embedding_function=embeddings or get_embeddings(),
         persist_directory=chroma_path(),
+        collection_metadata={"hnsw:space": "cosine"},
     )
 
 
