@@ -1,1 +1,1 @@
-"""Add chunks with metadata (team_id, doc_type, source, date) to team_dev / team_sales / team_social."""
+"""Build persistent, physically isolated Chroma collections from the manifest."""
