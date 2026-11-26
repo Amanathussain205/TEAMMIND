@@ -129,3 +129,7 @@ Things a team keeps to itself (write your **CONFIDENTIAL** facts in these areas)
 - Money is always in **PKR**.
 - Only use the people listed above. Each document's writer must be a member of that team.
 - Don't use real brand names (no real banks, wallets or competitors). Invent them, and add them here.
+
+## 8. Dataset additions
+
+Fictional internal values added after this page was written (ticket and issue IDs, Green Valley Superstore details, illustrative figures, confidential planning numbers) are listed in `docs/governance/TeamMind_Master_Fact_and_Extension_Register.docx`. Check it before adding new facts.

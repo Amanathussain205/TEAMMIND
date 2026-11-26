@@ -38,8 +38,9 @@ pytest
 | `app/agents` | LangGraph team agent, supervisor, tools (Phases 3-4) |
 | `app/security` | Sanitizer, LLM guard, output validator (Phase 4) |
 | `baselines` | Generic LLM and RAG-only baselines, frozen at v0.2 |
-| `eval` | Benchmark datasets, judges, results (Phase 5) |
-| `data` | Fictional company documents per team, seed CSVs |
+| `eval` | Judges and runner (Phase 5); `datasets/dev` (visible dev set), `datasets/test` (hidden test set), `datasets/tricks` (injection documents, never ingested); `results` |
+| `data` | `company_description.md` (source of truth), `corpus/` (38 DOCX: `shared`, `dev`, `sales`, `social` + `manifest.csv`), `seed/` CSVs |
+| `docs` | Non-code project documents: dataset fact register, readable question lists (never ingested) |
 | `ui` | Streamlit app |
 | `storage` | Chroma and SQLite files (git-ignored) |
 

@@ -19,3 +19,11 @@ Thumbs.db
 
 # Planning documents (kept in Google Drive)
 /*.pdf
+
+# Word lock files and local dataset backups
+~$*
+*_backup*/
+
+# Hidden test set (written by teammates, never committed)
+eval/datasets/test/*
+!eval/datasets/test/.gitkeep
